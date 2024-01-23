@@ -1,4 +1,4 @@
-﻿namespace CarApplication.Models
+﻿namespace CarApplication.Models.Car
 {
     public class CarsCreateViewModel
     {

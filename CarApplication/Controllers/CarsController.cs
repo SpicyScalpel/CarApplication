@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using CarApplication.Models;
+using CarApplication.Models.Car;
 
 namespace CarApplication.Controllers
 {
