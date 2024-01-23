@@ -1,33 +1,40 @@
-﻿
-
+﻿@model IEnumerable<CarApplication.Models.Car.CarIndexViewModel>
 
 
 <div class="h1">
     Cars
 </div>
 
+@{
+    int rowNumber = 1;
+}
 
 <form method="post">
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Nr</th>
-                <th>CarBrand</th>
-                <th>CarModel</th>
-                <th>CarYear</th>
-                <th>CarColor</th>
-                <th>CarPrice</th>
+                <th scope="col">Nr</th>
+                <th scope="col">CarBrand</th>
+                <th scope="col">CarModel</th>
+                <th scope="col">CarYear</th>
+                <th scope="col">CarColor</th>
+                <th scope="col">CarPrice</th>
             </tr>
         </thead>
         <tbody>
+            @foreach (var car in Model)
+            {
+                <tr>
+                    <td>@rowNumber</td>
+                    <td>@car.CarBrand</td>
+                    <td>@car.CarModel</td>
+                    <td>@car.CarYear</td>
+                    <td>@car.CarColor</td>
+                    <th>@car.CarPrice</th>
+                </tr>
 
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                rowNumber += 1;
+            }
 
         </tbody>
     </table>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Car.Core.Domain
 {
-    public class Car
+    public class Cars
     {
         public Guid? Id { get; set; }
         public string CarBrand { get; set; }
@@ -14,7 +14,6 @@ namespace Car.Core.Domain
         public int CarYear { get; set; }
         public string CarColor { get; set; }
         public int CarPrice { get; set; }
-
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
