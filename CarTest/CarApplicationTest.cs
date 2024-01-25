@@ -1,5 +1,7 @@
-﻿using Car.Core.Dto;
+﻿using Car.Core.Domain;
+using Car.Core.Dto;
 using Car.Core.ServiceInterface;
+using System.Xml;
 
 namespace CarTest
 {
@@ -48,6 +50,37 @@ namespace CarTest
             var result = await Svc<ICarServices>().Delete((Guid)addCar2.Id);
 
             Assert.NotEqual(result.Id, addCar.Id);
+        }
+
+        [Fact]
+        public async Task Should_UpdateCar_WhenUpdateData()
+        {
+            var guid = new Guid("2b8b9080-60ef-442b-9822-f1ad47984736");
+            //Arrange
+            //old data from db
+            Cars car = new Cars();
+
+            //new data
+            CarsDto dto = MockCarData(); //mock!!!
+
+            car.Id = Guid.Parse("2b8b9080-60ef-442b-9822-f1ad47984736");
+            car.CarBrand = "Opel";
+            car.CarModel = "Astra GS 130 Automaat";
+            car.CarYear = 2023;
+            car.CarColor = "Red";
+            car.CarPrice = 31900;
+            car.CreatedAt = DateTime.Now.AddYears(1);
+            car.UpdatedAt = DateTime.Now.AddYears(1);
+
+
+            //Act
+            await Svc<ICarServices>().Update(dto);
+
+            //Assert
+            Assert.Equal(car.Id, guid);
+            Assert.NotEqual(car.CarBrand, dto.CarBrand);
+            Assert.Equal(car.CarModel, dto.CarModel);
+            Assert.DoesNotMatch(car.CreatedAt.ToString(), dto.CreatedAt.ToString());
         }
 
         [Fact]
