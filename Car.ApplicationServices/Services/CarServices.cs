@@ -36,6 +36,7 @@ namespace Car.ApplicationServices.Services
             car.CarPrice = dto.CarPrice;
             car.CreatedAt = DateTime.Now;
             car.UpdatedAt = DateTime.Now;
+            //if here change CreatedAt and UpdatedAt to dto so we can insert any day - it wont be fixed
 
             await _context.Carapp.AddAsync(car);
             await _context.SaveChangesAsync();
@@ -55,6 +56,7 @@ namespace Car.ApplicationServices.Services
                 CarPrice = dto.CarPrice,
                 CreatedAt = dto.CreatedAt,
                 UpdatedAt = DateTime.Now,
+
             };
 
             _context.Carapp.Update(domain);

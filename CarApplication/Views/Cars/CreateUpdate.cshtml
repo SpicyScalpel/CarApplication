@@ -1,5 +1,23 @@
 ﻿@model CarApplication.Models.Car.CarCreateUpdateViewModel
 
+<style>
+    html, body {
+        background-image: url('/images/winter.jpg');
+        background-size: cover;
+    }
+
+    table {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: white;
+    }
+
+    .semi-transparent-bg {
+        background-color: rgba(255, 255, 255, 0.75); 
+        padding: 10px; 
+        border-radius: 10px; 
+    }
+</style>
+
 @if (Model.Id.HasValue)
 {
     <h1>Update</h1>
@@ -12,7 +30,9 @@ else
 <div>
     <h4>Car</h4>
     <hr />
-    <form method="post" enctype="multipart/form-data">
+    <div class="semi-transparent-bg">
+        <form method="post" enctype="multipart/form-data">
+            <input asp-for="Id" type="hidden" />
         <input asp-for="Id" type="hidden" />
         <div class="form-group row">
             <label asp-for="CarBrand" class="col-sm-2 col-form-label"></label>
@@ -57,6 +77,7 @@ else
             </div>
         </div>
 
+
         <hr />
 
         @if (Model.Id.HasValue)
@@ -70,5 +91,6 @@ else
 
         <a asp-action="index" class="btn btn-primary">Index</a>
 
-    </form>
+        </form>
+    </div>
 </div>

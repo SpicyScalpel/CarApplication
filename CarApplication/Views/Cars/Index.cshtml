@@ -1,8 +1,21 @@
 ﻿@model IEnumerable<CarApplication.Models.Car.CarIndexViewModel>
 
-    <div class="h1">
-        Cars
-    </div>
+<style>
+    html, body {
+        background-image: url('/images/winter.jpg');
+        background-size: cover; 
+        color: white; 
+    }
+
+    table {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: white; 
+    }
+</style>
+
+<div class="h1" style="color: black;">
+    Cars
+</div>
 
     @{
         int rowNumber = 1;
