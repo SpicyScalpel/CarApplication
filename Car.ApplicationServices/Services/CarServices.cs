@@ -37,7 +37,7 @@ namespace Car.ApplicationServices.Services
             car.CreatedAt = DateTime.Now;
             car.UpdatedAt = DateTime.Now;
 
-            await _context.CarShop.AddAsync(car);
+            await _context.Carapp.AddAsync(car);
             await _context.SaveChangesAsync();
 
             return car;
@@ -57,7 +57,7 @@ namespace Car.ApplicationServices.Services
                 UpdatedAt = DateTime.Now,
             };
 
-            _context.CarShop.Update(domain);
+            _context.Carapp.Update(domain);
             await _context.SaveChangesAsync();
 
             return domain;
@@ -65,10 +65,10 @@ namespace Car.ApplicationServices.Services
 
         public async Task<Cars> Delete(Guid id)
         {
-            var carId = await _context.CarShop
+            var carId = await _context.Carapp
                 .FirstOrDefaultAsync(x => x.Id == id);
 
-            _context.CarShop.Remove(carId);
+            _context.Carapp.Remove(carId);
             await _context.SaveChangesAsync();
 
             return carId;
@@ -76,7 +76,7 @@ namespace Car.ApplicationServices.Services
 
         public async Task<Cars>GetAsync(Guid id)
         {
-            var result = await _context.CarShop
+            var result = await _context.Carapp
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             return result;

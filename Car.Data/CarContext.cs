@@ -16,7 +16,7 @@ namespace Car.Data
                     DbContextOptions<CarContext> options
                 ) : base(options) { }
 
-            public DbSet<Cars> CarShop { get; set; }
+            public DbSet<Cars> Carapp { get; set; }
 
         }
     }

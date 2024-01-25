@@ -23,7 +23,7 @@ namespace CarApplication.Controllers
         }
         public IActionResult Index()
         {
-            var result = _context.CarShop
+            var result = _context.Carapp
                 .Select(x => new CarIndexViewModel
                 {
                     //Id = x.Id,
