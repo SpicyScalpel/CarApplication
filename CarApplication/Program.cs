@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Car.Data;
+using Car.Core.ServiceInterface;
+using Car.ApplicationServices.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<CarContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<ICarServices, CarServices>();
 
 var app = builder.Build();
 

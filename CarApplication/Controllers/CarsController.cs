@@ -60,5 +60,16 @@ namespace CarApplication.Controllers
 
             return RedirectToAction(nameof(Index), vm);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var car = await _carServices.GetAsync(id);
+
+            if (car == null)
+            {
+                return NotFound();
+            }
+        }
     }
 }

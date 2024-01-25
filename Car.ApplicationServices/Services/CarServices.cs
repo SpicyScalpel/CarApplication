@@ -42,5 +42,13 @@ namespace Car.ApplicationServices.Services
 
             return car;
         }
+
+        public async Task<Cars>GetAsync(Guid id)
+        {
+            var result = await _context.CarShop
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            return result;
+        }
     }
 }
