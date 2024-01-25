@@ -12,7 +12,7 @@ namespace Car.Core.ServiceInterface
     {
         Task<Cars> Create(CarsDto dto);
         Task<Cars> GetAsync(Guid id);
-        //Task<Cars> Update(CarsDto dto);
-        //Task<Cars> Delete(CarsDto dto);
+        Task<Cars> Update(CarsDto dto);
+        Task<Cars> Delete(Guid id);
     }
 }

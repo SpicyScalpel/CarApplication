@@ -1,19 +1,18 @@
 ﻿@model IEnumerable<CarApplication.Models.Car.CarIndexViewModel>
 
+    <div class="h1">
+        Cars
+    </div>
 
-<div class="h1">
-    Cars
-</div>
+    @{
+        int rowNumber = 1;
+    }
 
-@{
-    int rowNumber = 1;
-}
+    <div>
+        <a asp-action="create" asp-asp-controller="cars" class="btn btn-primary">Create</a>
+    </div>
 
-<div>
-    <a asp-action="create" asp-controller="cars" class="btn btn-primary">Create</a>
-</div>
-
-<form method="post">
+    <form method="post">
     <table class="table table-hover">
         <thead>
             <tr>
@@ -23,6 +22,7 @@
                 <th scope="col">CarYear</th>
                 <th scope="col">CarColor</th>
                 <th scope="col">CarPrice</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -37,10 +37,13 @@
                     <td>@car.CarPrice</td>
                     <td>
                         <a asp-action="details" asp-controller="cars" asp-route-id="@car.Id" class="btn btn-info">Details</a>
+                        <a asp-action="update" asp-controller="cars" asp-route-id="@car.Id" class="btn btn-outline-primary">Update</a>
+                        <a asp-action="delete" asp-controller="cars" asp-route-id="@car.Id" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
 
                 rowNumber += 1;
+
             }
 
         </tbody>

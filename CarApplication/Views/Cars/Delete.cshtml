@@ -1,6 +1,6 @@
-﻿@model CarApplication.Models.Car.CarDetailsViewModel
+﻿@model CarApplication.Models.Car.CarDeleteViewModel
 
-<h1>Details</h1>
+<h1>Delete</h1>
 
 <div>
     <h4>Car</h4>
@@ -47,6 +47,9 @@
         </div>
     </dl>
     <hr />
-    <a asp-action="index" class="btn btn-primary">Index</a>
-
+    <form asp-action="DeleteConfirmation">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="index" class="btn btn-primary">Index</a>
+    </form>
 </div>
