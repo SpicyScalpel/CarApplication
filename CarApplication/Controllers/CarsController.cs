@@ -70,6 +70,19 @@ namespace CarApplication.Controllers
             {
                 return NotFound();
             }
+
+            var vm = new CarDetailsViewModel();
+
+            vm.Id = car.Id;
+            vm.CarBrand = car.CarBrand;
+            vm.CarModel = car.CarModel;
+            vm.CarYear = car.CarYear;
+            vm.CarColor = car.CarColor;
+            vm.CarPrice = car.CarPrice;
+            vm.CreatedAt = car.CreatedAt;
+            vm.UpdatedAt = car.UpdatedAt;
+
+            return View(vm);
         }
     }
 }

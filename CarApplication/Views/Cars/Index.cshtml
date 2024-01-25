@@ -34,7 +34,10 @@
                     <td>@car.CarModel</td>
                     <td>@car.CarYear</td>
                     <td>@car.CarColor</td>
-                    <th>@car.CarPrice</th>
+                    <td>@car.CarPrice</td>
+                    <td>
+                        <a asp-action="details" asp-controller="cars" asp-route-id="@car.Id" class="btn btn-info">Details</a>
+                    </td>
                 </tr>
 
                 rowNumber += 1;
