@@ -24,9 +24,10 @@ namespace CarApplication.Controllers
         public IActionResult Index()
         {
             var result = _context.Carapp
+                .OrderByDescending(y => y.Id)
                 .Select(x => new CarIndexViewModel
                 {
-                    //Id = x.Id,
+                    Id = x.Id,
                     CarBrand = x.CarBrand,
                     CarModel = x.CarModel,
                     CarYear = x.CarYear,
@@ -55,7 +56,9 @@ namespace CarApplication.Controllers
                 CarModel = vm.CarModel,
                 CarYear = vm.CarYear,
                 CarColor = vm.CarColor,
-                CarPrice = vm.CarPrice
+                CarPrice = vm.CarPrice,
+                CreatedAt = vm.CreatedAt,
+                UpdatedAt = vm.UpdatedAt
             };
 
             var result = await _carServices.Create(dto);
