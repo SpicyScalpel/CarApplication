@@ -24,7 +24,7 @@ namespace CarApplication.Controllers
         public IActionResult Index()
         {
             var result = _context.Carapp
-                .OrderByDescending(y => y.Id)
+                .OrderBy(x => x.CarBrand)
                 .Select(x => new CarIndexViewModel
                 {
                     Id = x.Id,
